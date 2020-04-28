@@ -45,7 +45,6 @@ margin_right = 534.53
 margin_bottom = 306.49
 
 [node name="trash_trays" type="Node2D" parent="."]
-editor/display_folded = true
 position = Vector2( -119.32, -97.39 )
 script = ExtResource( 8 )
 

@@ -7,6 +7,7 @@
 script = ExtResource( 1 )
 
 [node name="trashbag_body" type="RigidBody2D" parent="." groups=[
+"inorganic",
 "trash",
 ]]
 

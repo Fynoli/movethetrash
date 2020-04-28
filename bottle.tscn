@@ -8,6 +8,7 @@ script = ExtResource( 1 )
 
 [node name="bottle_body" type="RigidBody2D" parent="." groups=[
 "trash",
+"inorganic",
 ]]
 
 [node name="bottle_shape" type="CollisionPolygon2D" parent="bottle_body"]
