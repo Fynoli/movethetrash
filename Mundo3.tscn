@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://level3res/Mundo3.gd" type="Script" id=1]
 [ext_resource path="res://sprites/backgrounds/simple_daytime.png" type="Texture" id=2]
@@ -12,8 +12,9 @@
 [ext_resource path="res://sprites/wood/h_wood_plank_1.png" type="Texture" id=10]
 [ext_resource path="res://sprites/speech_bubble/speech_bubble.png" type="Texture" id=11]
 [ext_resource path="res://level3res/speech_bubble.gd" type="Script" id=12]
-[ext_resource path="res://level_cleared_window.tscn" type="PackedScene" id=13]
-[ext_resource path="res://reset_exit_window.tscn" type="PackedScene" id=14]
+[ext_resource path="res://Tools/MouseSpawner.tscn" type="PackedScene" id=13]
+[ext_resource path="res://level_cleared_window.tscn" type="PackedScene" id=14]
+[ext_resource path="res://reset_exit_window.tscn" type="PackedScene" id=15]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 235.078, 32.4715 )
@@ -160,11 +161,14 @@ wait_time = 5.0
 one_shot = true
 autostart = true
 
-[node name="level_cleared_window" parent="." instance=ExtResource( 13 )]
+[node name="MouseSpawner" parent="." instance=ExtResource( 13 )]
+visible = false
+
+[node name="level_cleared_window" parent="." instance=ExtResource( 14 )]
 pause_mode = 2
 visible = false
 
-[node name="reset_exit_window" parent="." instance=ExtResource( 14 )]
+[node name="reset_exit_window" parent="." instance=ExtResource( 15 )]
 pause_mode = 2
 visible = false
 margin_left = 537.06

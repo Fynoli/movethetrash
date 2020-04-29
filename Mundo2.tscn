@@ -1,17 +1,18 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://Level2res/Mundo2.gd" type="Script" id=1]
 [ext_resource path="res://sprites/backgrounds/simple_daytime.png" type="Texture" id=2]
 [ext_resource path="res://cannon_cart.tscn" type="PackedScene" id=3]
 [ext_resource path="res://pipe.tscn" type="PackedScene" id=4]
 [ext_resource path="res://floor.tscn" type="PackedScene" id=5]
-[ext_resource path="res://level_cleared_window.tscn" type="PackedScene" id=6]
-[ext_resource path="res://reset_exit_window.tscn" type="PackedScene" id=7]
-[ext_resource path="res://Level2res/trash_trays.gd" type="Script" id=8]
-[ext_resource path="res://sprites/wood/h_wood_plank_2.png" type="Texture" id=9]
-[ext_resource path="res://sprites/speech_bubble/speech_bubble.png" type="Texture" id=10]
-[ext_resource path="res://Level2res/speech_bubble.gd" type="Script" id=11]
-[ext_resource path="res://fonts/montserrat_24.tres" type="DynamicFont" id=12]
+[ext_resource path="res://Level2res/trash_trays.gd" type="Script" id=6]
+[ext_resource path="res://sprites/wood/h_wood_plank_2.png" type="Texture" id=7]
+[ext_resource path="res://sprites/speech_bubble/speech_bubble.png" type="Texture" id=8]
+[ext_resource path="res://Level2res/speech_bubble.gd" type="Script" id=9]
+[ext_resource path="res://fonts/montserrat_24.tres" type="DynamicFont" id=10]
+[ext_resource path="res://Tools/MouseSpawner.tscn" type="PackedScene" id=11]
+[ext_resource path="res://level_cleared_window.tscn" type="PackedScene" id=12]
+[ext_resource path="res://reset_exit_window.tscn" type="PackedScene" id=13]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 234.363, 33.3328 )
@@ -32,21 +33,10 @@ texture = ExtResource( 2 )
 
 [node name="floor" parent="." instance=ExtResource( 5 )]
 
-[node name="level_cleared_window" parent="." instance=ExtResource( 6 )]
-pause_mode = 2
-visible = false
-
-[node name="reset_exit_window" parent="." instance=ExtResource( 7 )]
-pause_mode = 2
-visible = false
-margin_left = 534.53
-margin_top = 306.49
-margin_right = 534.53
-margin_bottom = 306.49
-
 [node name="trash_trays" type="Node2D" parent="."]
+editor/display_folded = true
 position = Vector2( -119.32, -97.39 )
-script = ExtResource( 8 )
+script = ExtResource( 6 )
 
 [node name="tray_1" type="StaticBody2D" parent="trash_trays"]
 position = Vector2( 1221.43, 578.713 )
@@ -56,7 +46,7 @@ __meta__ = {
 }
 
 [node name="tray_sprite" type="Sprite" parent="trash_trays/tray_1"]
-texture = ExtResource( 9 )
+texture = ExtResource( 7 )
 
 [node name="tray_shape" type="CollisionShape2D" parent="trash_trays/tray_1"]
 shape = SubResource( 1 )
@@ -76,7 +66,7 @@ __meta__ = {
 }
 
 [node name="tray_sprite" type="Sprite" parent="trash_trays/tray_2"]
-texture = ExtResource( 9 )
+texture = ExtResource( 7 )
 
 [node name="tray_shape" type="CollisionShape2D" parent="trash_trays/tray_2"]
 shape = SubResource( 1 )
@@ -96,7 +86,7 @@ __meta__ = {
 }
 
 [node name="tray_sprite" type="Sprite" parent="trash_trays/tray_3"]
-texture = ExtResource( 9 )
+texture = ExtResource( 7 )
 
 [node name="tray_shape" type="CollisionShape2D" parent="trash_trays/tray_3"]
 shape = SubResource( 1 )
@@ -115,15 +105,15 @@ one_shot = true
 [node name="speech_bubble" type="Sprite" parent="."]
 editor/display_folded = true
 position = Vector2( 748.23, 195.3 )
-texture = ExtResource( 10 )
-script = ExtResource( 11 )
+texture = ExtResource( 8 )
+script = ExtResource( 9 )
 
 [node name="Label" type="Label" parent="speech_bubble"]
 margin_left = -237.26
 margin_top = -89.9
 margin_right = 459.74
 margin_bottom = -58.9
-custom_fonts/font = ExtResource( 12 )
+custom_fonts/font = ExtResource( 10 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Objetivo: Coloca solo 1 pieza de
  basura en cada repisa."
@@ -132,6 +122,21 @@ text = "Objetivo: Coloca solo 1 pieza de
 wait_time = 5.0
 one_shot = true
 autostart = true
+
+[node name="MouseSpawner" parent="." instance=ExtResource( 11 )]
+visible = false
+
+[node name="level_cleared_window" parent="." instance=ExtResource( 12 )]
+pause_mode = 2
+visible = false
+
+[node name="reset_exit_window" parent="." instance=ExtResource( 13 )]
+pause_mode = 2
+visible = false
+margin_left = 534.53
+margin_top = 306.49
+margin_right = 534.53
+margin_bottom = 306.49
 [connection signal="body_entered" from="trash_trays/tray_1/trash_area1" to="trash_trays" method="_on_trash_area1_body_entered"]
 [connection signal="body_exited" from="trash_trays/tray_1/trash_area1" to="trash_trays" method="_on_trash_area1_body_exited"]
 [connection signal="body_entered" from="trash_trays/tray_2/trash_area2" to="trash_trays" method="_on_trash_area2_body_entered"]
