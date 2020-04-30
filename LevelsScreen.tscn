@@ -1,5 +1,141 @@
-[gd_scene format=2]
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://UI/levels/LevelsScreen.gd" type="Script" id=1]
+[ext_resource path="res://sprites/backgrounds/simple_daytime.png" type="Texture" id=2]
+[ext_resource path="res://UI/levels/VBoxContainer.gd" type="Script" id=3]
+[ext_resource path="res://sprites/UI/levels_title.png" type="Texture" id=4]
+[ext_resource path="res://sprites/UI/numbers/1.png" type="Texture" id=5]
+[ext_resource path="res://sprites/UI/numbers/lock.png" type="Texture" id=6]
+[ext_resource path="res://sprites/UI/numbers/2.png" type="Texture" id=7]
+[ext_resource path="res://sprites/UI/numbers/3.png" type="Texture" id=8]
+[ext_resource path="res://sprites/UI/numbers/4.png" type="Texture" id=9]
+[ext_resource path="res://sprites/UI/numbers/5.png" type="Texture" id=10]
+[ext_resource path="res://fonts/montserrat_48.tres" type="DynamicFont" id=11]
 
 [node name="LevelsScreen" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+script = ExtResource( 1 )
+
+[node name="Background" type="TextureRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 2 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 110.513
+margin_top = 80.0
+margin_right = 156.513
+margin_bottom = 80.0
+rect_scale = Vector2( 0.8, 0.8 )
+script = ExtResource( 3 )
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer"]
+margin_right = 1326.0
+margin_bottom = 128.0
+texture = ExtResource( 4 )
+stretch_mode = 4
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+margin_top = 132.0
+margin_right = 1326.0
+margin_bottom = 388.0
+alignment = 1
+
+[node name="Button" type="Button" parent="VBoxContainer/HBoxContainer"]
+margin_right = 262.0
+margin_bottom = 256.0
+disabled = true
+icon = ExtResource( 5 )
+flat = true
+
+[node name="lock1" type="Sprite" parent="VBoxContainer/HBoxContainer/Button"]
+position = Vector2( 130.939, 128.032 )
+scale = Vector2( 0.573418, 0.5 )
+texture = ExtResource( 6 )
+
+[node name="Button2" type="Button" parent="VBoxContainer/HBoxContainer"]
+margin_left = 266.0
+margin_right = 528.0
+margin_bottom = 256.0
+disabled = true
+icon = ExtResource( 7 )
+flat = true
+
+[node name="lock2" type="Sprite" parent="VBoxContainer/HBoxContainer/Button2"]
+position = Vector2( 132.07, 127.6 )
+scale = Vector2( 0.573418, 0.5 )
+texture = ExtResource( 6 )
+
+[node name="Button3" type="Button" parent="VBoxContainer/HBoxContainer"]
+margin_left = 532.0
+margin_right = 794.0
+margin_bottom = 256.0
+disabled = true
+icon = ExtResource( 8 )
+flat = true
+
+[node name="lock3" type="Sprite" parent="VBoxContainer/HBoxContainer/Button3"]
+position = Vector2( 132.099, 128.032 )
+scale = Vector2( 0.573418, 0.5 )
+texture = ExtResource( 6 )
+
+[node name="Button4" type="Button" parent="VBoxContainer/HBoxContainer"]
+margin_left = 798.0
+margin_right = 1060.0
+margin_bottom = 256.0
+disabled = true
+icon = ExtResource( 9 )
+flat = true
+
+[node name="lock4" type="Sprite" parent="VBoxContainer/HBoxContainer/Button4"]
+position = Vector2( 131.919, 128.032 )
+scale = Vector2( 0.573418, 0.5 )
+texture = ExtResource( 6 )
+
+[node name="Button5" type="Button" parent="VBoxContainer/HBoxContainer"]
+margin_left = 1064.0
+margin_right = 1326.0
+margin_bottom = 256.0
+disabled = true
+icon = ExtResource( 10 )
+flat = true
+
+[node name="lock5" type="Sprite" parent="VBoxContainer/HBoxContainer/Button5"]
+position = Vector2( 132.539, 128.032 )
+scale = Vector2( 0.573418, 0.5 )
+texture = ExtResource( 6 )
+
+[node name="Back_Button" type="Button" parent="VBoxContainer"]
+editor/display_folded = true
+margin_top = 392.0
+margin_right = 172.27
+margin_bottom = 457.92
+rect_min_size = Vector2( 172.27, 65.92 )
+rect_clip_content = true
+size_flags_horizontal = 0
+size_flags_vertical = 0
+flat = true
+align = 0
+
+[node name="Label" type="Label" parent="VBoxContainer/Back_Button"]
+margin_right = 40.0
+margin_bottom = 14.0
+custom_fonts/font = ExtResource( 11 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_shadow = Color( 1, 0.592157, 0, 1 )
+custom_constants/shadow_offset_y = 5
+text = "Volver"
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.25
+autostart = true
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/Button" to="VBoxContainer" method="_on_Button_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/Button2" to="VBoxContainer" method="_on_Button2_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/Button3" to="VBoxContainer" method="_on_Button3_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/Button4" to="VBoxContainer" method="_on_Button4_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/Button5" to="VBoxContainer" method="_on_Button5_pressed"]
+[connection signal="pressed" from="VBoxContainer/Back_Button" to="VBoxContainer" method="_on_Back_Button_pressed"]
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

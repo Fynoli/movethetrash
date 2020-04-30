@@ -94,6 +94,7 @@ points = PoolVector2Array( 12.19, -59.27, 20.42, 0.1, -20.53, -0.1, -13.97, -59.
 position = Vector2( 312.201, 692.446 )
 collision_layer = 2
 script = ExtResource( 1 )
+motion_speed = 300
 
 [node name="cart_sprite" type="Sprite" parent="."]
 scale = Vector2( 0.5, 0.5 )

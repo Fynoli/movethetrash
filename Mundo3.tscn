@@ -35,6 +35,7 @@ texture = ExtResource( 2 )
 [node name="cannon_cart" parent="." instance=ExtResource( 3 )]
 
 [node name="pipe" parent="." instance=ExtResource( 4 )]
+z_index = 0
 
 [node name="floor" parent="." instance=ExtResource( 5 )]
 
@@ -162,7 +163,6 @@ one_shot = true
 autostart = true
 
 [node name="MouseSpawner" parent="." instance=ExtResource( 13 )]
-visible = false
 
 [node name="level_cleared_window" parent="." instance=ExtResource( 14 )]
 pause_mode = 2

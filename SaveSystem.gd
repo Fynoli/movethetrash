@@ -12,12 +12,17 @@ var load_response = config.load(save_path)
 func _ready():
 	max_level_reached=config.get_value("Max_level_reached","Level",max_level_reached)
 	pass # Replace with function body.
+	
 
 func save_current_level(level):
-	if level>current_level and level<max_level:
-		current_level=level
-		config.set_value("Max_level_reached","Level",current_level)
+	if level>max_level_reached and level<=max_level:
+		config.set_value("Max_level_reached","Level",level)
 		config.save(save_path)
+		max_level_reached=level
+	pass
+	
+func set_current_level(level):
+	current_level=level
 	pass
 
 func get_current_level():

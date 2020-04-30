@@ -51,3 +51,8 @@ func _on_Falling_trash_timer_timeout():
 	get_node("Background").add_child(fallingtrash)
 	fallingtrash.position=Vector2(rand_range(10,1270),-100)
 	fallingtrash.get_child(0).add_torque(rand_range(-200,200))
+
+
+func _on_SelectLevelButton_pressed():
+	get_tree().change_scene("res://LevelsScreen.tscn")
+	pass # Replace with function body.
