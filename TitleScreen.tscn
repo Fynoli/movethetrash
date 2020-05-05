@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://TitleScreen.gd" type="Script" id=1]
 [ext_resource path="res://sprites/backgrounds/simple_daytime.png" type="Texture" id=2]
@@ -8,6 +8,8 @@
 [ext_resource path="res://UI/ExitButton.tscn" type="PackedScene" id=6]
 [ext_resource path="res://fonts/montserrat_24.tres" type="DynamicFont" id=7]
 [ext_resource path="res://physical_mouse.gd" type="Script" id=8]
+[ext_resource path="res://soudFX/button_mouse_over.wav" type="AudioStream" id=9]
+[ext_resource path="res://soudFX/button_clicked.wav" type="AudioStream" id=10]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 20.0
@@ -76,7 +78,7 @@ margin_bottom = 560.0
 size_flags_vertical = 7
 custom_fonts/font = ExtResource( 7 )
 text = "
-Version 0.25
+Version 1.0
 Baldini Marcelo"
 
 [node name="Falling_trash_timer" type="Timer" parent="."]
@@ -88,7 +90,21 @@ script = ExtResource( 8 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="physical_mouse"]
 shape = SubResource( 1 )
+
+[node name="mouse_over" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 9 )
+volume_db = -25.0
+
+[node name="clicked" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 10 )
+volume_db = -25.0
+[connection signal="focus_entered" from="Menu/CenterRow/Buttons/NewGameButton" to="." method="_on_NewGameButton_focus_entered"]
+[connection signal="mouse_entered" from="Menu/CenterRow/Buttons/NewGameButton" to="." method="_on_NewGameButton_mouse_entered"]
 [connection signal="pressed" from="Menu/CenterRow/Buttons/NewGameButton" to="." method="_on_NewGameButton_pressed"]
+[connection signal="focus_entered" from="Menu/CenterRow/Buttons/SelectLevelButton" to="." method="_on_SelectLevelButton_focus_entered"]
+[connection signal="mouse_entered" from="Menu/CenterRow/Buttons/SelectLevelButton" to="." method="_on_SelectLevelButton_mouse_entered"]
 [connection signal="pressed" from="Menu/CenterRow/Buttons/SelectLevelButton" to="." method="_on_SelectLevelButton_pressed"]
+[connection signal="focus_entered" from="Menu/CenterRow/Buttons/ExitButton" to="." method="_on_ExitButton_focus_entered"]
+[connection signal="mouse_entered" from="Menu/CenterRow/Buttons/ExitButton" to="." method="_on_ExitButton_mouse_entered"]
 [connection signal="pressed" from="Menu/CenterRow/Buttons/ExitButton" to="." method="_on_ExitButton_pressed"]
 [connection signal="timeout" from="Falling_trash_timer" to="." method="_on_Falling_trash_timer_timeout"]

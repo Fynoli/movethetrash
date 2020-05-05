@@ -10,6 +10,14 @@ var banana
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	var volume=get_node("/root/global_values").get_fx_volume()
+	get_node("mouse_over").volume_db+=volume
+	get_node("clicked").volume_db+=volume
+	
+	get_node("/root/music_player").stop_level_theme()
+	if not get_node("/root/music_player/menu_theme").playing:
+		get_node("/root/music_player").play_menu_theme()
+	
 	get_tree().paused=false
 	get_node("Menu/CenterRow/Buttons/NewGameButton").grab_focus()
 	can= load("res://can.tscn")
@@ -26,11 +34,15 @@ func _process(delta):
 
 
 func _on_NewGameButton_pressed():
+	get_node("clicked").play()
+	get_node("/root/music_player").stop_menu_theme()
+	get_node("/root/music_player").play_level_theme()
 	get_tree().change_scene("res://Mundo.tscn")
 	pass # Replace with function body.
 
 
 func _on_ExitButton_pressed():
+	get_node("clicked").play()
 	get_tree().quit()
 	pass # Replace with function body.
 
@@ -54,5 +66,36 @@ func _on_Falling_trash_timer_timeout():
 
 
 func _on_SelectLevelButton_pressed():
+	get_node("clicked").play()
 	get_tree().change_scene("res://LevelsScreen.tscn")
+	pass # Replace with function body.
+
+
+func _on_NewGameButton_focus_entered():
+	get_node("mouse_over").play()
+	pass # Replace with function body.
+
+
+func _on_NewGameButton_mouse_entered():
+	get_node("mouse_over").play()
+	pass # Replace with function body.
+
+
+func _on_SelectLevelButton_focus_entered():
+	get_node("mouse_over").play()
+	pass # Replace with function body.
+
+
+func _on_SelectLevelButton_mouse_entered():
+	get_node("mouse_over").play()
+	pass # Replace with function body.
+
+
+func _on_ExitButton_focus_entered():
+	get_node("mouse_over").play()
+	pass # Replace with function body.
+
+
+func _on_ExitButton_mouse_entered():
+	get_node("mouse_over").play()
 	pass # Replace with function body.

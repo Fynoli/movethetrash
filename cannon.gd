@@ -9,11 +9,14 @@ export var bullet_spawn_distance_from_cannon =75
 var mouse_position
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	var volume=get_node("/root/global_values").get_fx_volume()
+	get_node("shot").volume_db+=volume
 	pass # Replace with function body.
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if(Input.is_action_just_pressed("mouse_1")):
+		get_node("shot").play()
 		get_child(0).frame=0
 		get_child(0).play("shooting",false)
 		var projectile = load("res://bullet.tscn")

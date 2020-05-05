@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://banana.gd" type="Script" id=1]
 [ext_resource path="res://sprites/banana/banana.png" type="Texture" id=2]
+[ext_resource path="res://soudFX/banana_1.wav" type="AudioStream" id=3]
+[ext_resource path="res://soudFX/banana_2.wav" type="AudioStream" id=4]
 
 [node name="banana" type="Node2D" groups=[
 "trash",
@@ -9,9 +11,11 @@
 script = ExtResource( 1 )
 
 [node name="banana_body" type="RigidBody2D" parent="." groups=[
-"trash",
 "organic",
+"trash",
 ]]
+contacts_reported = 1
+contact_monitor = true
 
 [node name="banana_shape" type="CollisionPolygon2D" parent="banana_body"]
 scale = Vector2( 0.22, 0.22 )
@@ -19,3 +23,12 @@ polygon = PoolVector2Array( -43.7456, -73.8229, -42.2089, -68.5979, -42.5162, -6
 
 [node name="banana_sprite" type="Sprite" parent="banana_body/banana_shape"]
 texture = ExtResource( 2 )
+
+[node name="impact_1" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 3 )
+volume_db = -25.0
+
+[node name="impact_2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
+volume_db = -25.0
+[connection signal="body_entered" from="banana_body" to="." method="_on_banana_body_body_entered"]

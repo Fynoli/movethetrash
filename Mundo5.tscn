@@ -260,6 +260,7 @@ explosiveness = 0.76
 process_material = SubResource( 6 )
 
 [node name="MouseSpawner" parent="." instance=ExtResource( 13 )]
+visible = false
 
 [node name="Points" type="Label" parent="."]
 margin_left = 143.0

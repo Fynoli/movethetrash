@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/button_clicked.wav-a2999d063dc60b26f8812a0cf142a780.sample"
+
+[deps]
+
+source_file="res://soudFX/button_clicked.wav"
+dest_files=[ "res://.import/button_clicked.wav-a2999d063dc60b26f8812a0cf142a780.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

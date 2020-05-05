@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/can_2.wav-d214c37d21d43b3cfe2dab89e33f11eb.sample"
+
+[deps]
+
+source_file="res://soudFX/can_2.wav"
+dest_files=[ "res://.import/can_2.wav-d214c37d21d43b3cfe2dab89e33f11eb.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

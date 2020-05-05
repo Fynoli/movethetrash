@@ -1,8 +1,10 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://reset_exit_window.gd" type="Script" id=1]
 [ext_resource path="res://fonts/montserrat_48.tres" type="DynamicFont" id=2]
 [ext_resource path="res://fonts/montserrat_24.tres" type="DynamicFont" id=3]
+[ext_resource path="res://soudFX/button_mouse_over.wav" type="AudioStream" id=4]
+[ext_resource path="res://soudFX/button_clicked.wav" type="AudioStream" id=5]
 
 [node name="reset_exit_window" type="Control"]
 anchor_right = 1.0
@@ -42,5 +44,17 @@ margin_right = 206.0
 margin_bottom = 142.0
 custom_fonts/font = ExtResource( 3 )
 text = "Volver al menu"
+
+[node name="mouse_over" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
+volume_db = -25.0
+
+[node name="clicked" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 5 )
+volume_db = -25.0
+[connection signal="focus_entered" from="CenterContainer/VBoxContainer/reset_button" to="." method="_on_reset_button_focus_entered"]
+[connection signal="mouse_entered" from="CenterContainer/VBoxContainer/reset_button" to="." method="_on_reset_button_mouse_entered"]
 [connection signal="pressed" from="CenterContainer/VBoxContainer/reset_button" to="." method="_on_reset_button_pressed"]
+[connection signal="focus_entered" from="CenterContainer/VBoxContainer/back_to_menu_button" to="." method="_on_back_to_menu_button_focus_entered"]
+[connection signal="mouse_entered" from="CenterContainer/VBoxContainer/back_to_menu_button" to="." method="_on_back_to_menu_button_mouse_entered"]
 [connection signal="pressed" from="CenterContainer/VBoxContainer/back_to_menu_button" to="." method="_on_back_to_menu_button_pressed"]

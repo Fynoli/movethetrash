@@ -32,30 +32,106 @@ func _ready():
 
 
 func _on_Button_pressed():
+	get_node("clicked").play()
+	get_node("/root/music_player").stop_menu_theme()
+	get_node("/root/music_player").play_level_theme()
 	get_tree().change_scene("res://Mundo.tscn")
 	pass # Replace with function body.
 
 
 func _on_Button2_pressed():
+	get_node("clicked").play()
+	get_node("/root/music_player").stop_menu_theme()
+	get_node("/root/music_player").play_level_theme()
 	get_tree().change_scene("res://Mundo2.tscn")
 	pass # Replace with function body.
 
 
 func _on_Button3_pressed():
+	get_node("clicked").play()
+	get_node("/root/music_player").stop_menu_theme()
+	get_node("/root/music_player").play_level_theme()
 	get_tree().change_scene("res://Mundo3.tscn")
 	pass # Replace with function body.
 
 
 func _on_Button4_pressed():
+	get_node("clicked").play()
+	get_node("/root/music_player").stop_menu_theme()
+	get_node("/root/music_player").play_level_theme()
 	get_tree().change_scene("res://Mundo4.tscn")
 	pass # Replace with function body.
 
 
 func _on_Button5_pressed():
+	get_node("clicked").play()
+	get_node("/root/music_player").stop_menu_theme()
+	get_node("/root/music_player").play_level_theme()
 	get_tree().change_scene("res://Mundo5.tscn")
 	pass # Replace with function body.
 
 
 func _on_Back_Button_pressed():
+	get_node("clicked").play()
 	get_tree().change_scene("res://TitleScreen.tscn")
+	pass # Replace with function body.
+
+
+func _on_Button_focus_entered():
+	get_node("mouse_over").play()
+	pass # Replace with function body.
+
+
+func _on_Button_mouse_entered():
+	get_node("mouse_over").play()
+	pass # Replace with function body.
+
+
+func _on_Button2_focus_entered():
+	get_node("mouse_over").play()
+	pass # Replace with function body.
+
+
+func _on_Button2_mouse_entered():
+	get_node("mouse_over").play()
+	pass # Replace with function body.
+
+
+func _on_Button3_focus_entered():
+	get_node("mouse_over").play()
+	pass # Replace with function body.
+
+
+func _on_Button3_mouse_entered():
+	get_node("mouse_over").play()
+	pass # Replace with function body.
+
+
+func _on_Button4_focus_entered():
+	get_node("mouse_over").play()
+	pass # Replace with function body.
+
+
+func _on_Button4_mouse_entered():
+	get_node("mouse_over").play()
+	pass # Replace with function body.
+
+
+func _on_Button5_focus_entered():
+	get_node("mouse_over").play()
+	pass # Replace with function body.
+
+
+func _on_Button5_mouse_entered():
+	get_node("mouse_over").play()
+	pass # Replace with function body.
+
+
+func _on_Back_Button_focus_entered():
+	get_node("mouse_over").play()
+	pass # Replace with function body.
+
+
+func _on_Back_Button_mouse_entered():
+	get_node("mouse_over").play()
 	pass # Replace with function body.

@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=25 format=2]
 
 [ext_resource path="res://cannon_cart.gd" type="Script" id=1]
 [ext_resource path="res://sprites/cannon/base/canon_base.png" type="Texture" id=2]
@@ -17,6 +17,8 @@
 [ext_resource path="res://sprites/cannon/shooting/9.png" type="Texture" id=15]
 [ext_resource path="res://sprites/cannon/shooting/10.png" type="Texture" id=16]
 [ext_resource path="res://sprites/cannon/shooting/11.png" type="Texture" id=17]
+[ext_resource path="res://soudFX/cannon_shot.wav" type="AudioStream" id=18]
+[ext_resource path="res://soudFX/cannon_moving.wav" type="AudioStream" id=19]
 
 [sub_resource type="CapsuleShape2D" id=1]
 
@@ -135,4 +137,12 @@ animation = "idle"
 
 [node name="cannon_shape" type="CollisionShape2D" parent="cannon"]
 shape = SubResource( 5 )
+
+[node name="shot" type="AudioStreamPlayer" parent="cannon"]
+stream = ExtResource( 18 )
+volume_db = -30.0
+
+[node name="moving" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 19 )
+volume_db = -35.0
 [connection signal="animation_finished" from="cannon/cannon_sprites" to="cannon" method="_on_cannon_sprites_animation_finished"]

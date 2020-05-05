@@ -514,6 +514,7 @@ node_b = NodePath("../web_segment")
 softness = 0.2
 
 [node name="MouseSpawner" parent="." instance=ExtResource( 6 )]
+visible = false
 
 [node name="trash_group" type="Node2D" parent="."]
 editor/display_folded = true

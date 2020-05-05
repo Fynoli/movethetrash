@@ -1,7 +1,10 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://aple.gd" type="Script" id=1]
 [ext_resource path="res://sprites/aple/aple.png" type="Texture" id=2]
+[ext_resource path="res://soudFX/aple_1.wav" type="AudioStream" id=3]
+[ext_resource path="res://soudFX/aple_2.wav" type="AudioStream" id=4]
+[ext_resource path="res://soudFX/aple_3.wav" type="AudioStream" id=5]
 
 [node name="aple" type="Node2D"]
 script = ExtResource( 1 )
@@ -10,6 +13,8 @@ script = ExtResource( 1 )
 "organic",
 "trash",
 ]]
+contacts_reported = 1
+contact_monitor = true
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="aple_body"]
 scale = Vector2( 0.086, 0.086 )
@@ -18,3 +23,16 @@ polygon = PoolVector2Array( 15.3683, -199.778, 21.8995, -191.418, 25.2957, -171.
 [node name="aple_sprite" type="Sprite" parent="aple_body/CollisionPolygon2D"]
 position = Vector2( 1.56747, 0 )
 texture = ExtResource( 2 )
+
+[node name="impact_1" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 3 )
+volume_db = -30.0
+
+[node name="impact_2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
+volume_db = -30.0
+
+[node name="impact_3" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 5 )
+volume_db = -30.0
+[connection signal="body_entered" from="aple_body" to="." method="_on_aple_body_body_entered"]

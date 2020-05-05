@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/bag_1.wav-f8d128b47124106c2300e568a784064e.sample"
+
+[deps]
+
+source_file="res://soudFX/bag_1.wav"
+dest_files=[ "res://.import/bag_1.wav-f8d128b47124106c2300e568a784064e.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

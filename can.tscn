@@ -1,7 +1,10 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://can.gd" type="Script" id=1]
 [ext_resource path="res://sprites/aluminum_can/can.png" type="Texture" id=2]
+[ext_resource path="res://soudFX/can_1.wav" type="AudioStream" id=3]
+[ext_resource path="res://soudFX/can_2.wav" type="AudioStream" id=4]
+[ext_resource path="res://soudFX/can_3.wav" type="AudioStream" id=5]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 3.04, -5.22, 5.84, -0.32, 4.8, 1.51, 5.83, 3.89, 2.91, 5.04, -0.44, 5.14, -3.68, 4.48, -4.43, 3.72, -2.02, 1.41, -2.92, 1.21, -4, 0, -5.3, -1.85, -5.73, -3.36, -4.21, -4.46, -0.85, -5.3 )
@@ -10,9 +13,11 @@ points = PoolVector2Array( 3.04, -5.22, 5.84, -0.32, 4.8, 1.51, 5.83, 3.89, 2.91
 script = ExtResource( 1 )
 
 [node name="can_body" type="RigidBody2D" parent="." groups=[
-"trash",
 "inorganic",
+"trash",
 ]]
+contacts_reported = 1
+contact_monitor = true
 
 [node name="can_sprite" type="Sprite" parent="can_body"]
 scale = Vector2( 0.1, 0.1 )
@@ -21,3 +26,16 @@ texture = ExtResource( 2 )
 [node name="can_shape" type="CollisionShape2D" parent="can_body"]
 scale = Vector2( 2.36, 3.98 )
 shape = SubResource( 1 )
+
+[node name="impact_1" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 3 )
+volume_db = -20.0
+
+[node name="impact_2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
+volume_db = -20.0
+
+[node name="impact_3" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 5 )
+volume_db = -20.0
+[connection signal="body_entered" from="can_body" to="." method="_on_can_body_body_entered"]

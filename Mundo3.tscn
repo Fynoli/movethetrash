@@ -163,6 +163,7 @@ one_shot = true
 autostart = true
 
 [node name="MouseSpawner" parent="." instance=ExtResource( 13 )]
+visible = false
 
 [node name="level_cleared_window" parent="." instance=ExtResource( 14 )]
 pause_mode = 2

@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://bottle.gd" type="Script" id=1]
 [ext_resource path="res://sprites/bottle/bottle.png" type="Texture" id=2]
+[ext_resource path="res://soudFX/botle_1.wav" type="AudioStream" id=3]
+[ext_resource path="res://soudFX/botle_2.wav" type="AudioStream" id=4]
 
 [node name="bottle" type="Node2D"]
 script = ExtResource( 1 )
@@ -10,6 +12,8 @@ script = ExtResource( 1 )
 "trash",
 "inorganic",
 ]]
+contacts_reported = 1
+contact_monitor = true
 
 [node name="bottle_shape" type="CollisionPolygon2D" parent="bottle_body"]
 scale = Vector2( 0.15, 0.15 )
@@ -17,3 +21,12 @@ polygon = PoolVector2Array( 29, -243.4, 29, -236.5, 29.6728, -197.241, 25.8121, 
 
 [node name="bottle_sprite" type="Sprite" parent="bottle_body/bottle_shape"]
 texture = ExtResource( 2 )
+
+[node name="impact_1" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 3 )
+volume_db = -25.0
+
+[node name="impact_2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
+volume_db = -25.0
+[connection signal="body_entered" from="bottle_body" to="." method="_on_bottle_body_body_entered"]

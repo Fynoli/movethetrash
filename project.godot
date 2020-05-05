@@ -22,6 +22,8 @@ config/icon="res://icon.png"
 [autoload]
 
 SaveSystem="*res://SaveSystem.gd"
+global_values="*res://global_values.tscn"
+music_player="*res://music_player.tscn"
 
 [display]
 

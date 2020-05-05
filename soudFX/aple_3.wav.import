@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/aple_3.wav-c1ad4677b634ab204d04dc90d20d2456.sample"
+
+[deps]
+
+source_file="res://soudFX/aple_3.wav"
+dest_files=[ "res://.import/aple_3.wav-c1ad4677b634ab204d04dc90d20d2456.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0
