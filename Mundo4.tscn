@@ -5,21 +5,21 @@
 [ext_resource path="res://floor.tscn" type="PackedScene" id=3]
 [ext_resource path="res://sprites/wood/h_wood_plank_1.png" type="Texture" id=4]
 [ext_resource path="res://sprites/wood/h_wood_plank_2.png" type="Texture" id=5]
-[ext_resource path="res://Tools/MouseSpawner.tscn" type="PackedScene" id=6]
-[ext_resource path="res://aple.tscn" type="PackedScene" id=7]
-[ext_resource path="res://banana.tscn" type="PackedScene" id=8]
-[ext_resource path="res://bottle.tscn" type="PackedScene" id=9]
-[ext_resource path="res://can.tscn" type="PackedScene" id=10]
-[ext_resource path="res://trashbag.tscn" type="PackedScene" id=11]
-[ext_resource path="res://level4res/Trash_bins.gd" type="Script" id=12]
-[ext_resource path="res://sprites/simple_trash_bin/simple_trash_bin.png" type="Texture" id=13]
-[ext_resource path="res://fonts/montserrat_24.tres" type="DynamicFont" id=14]
-[ext_resource path="res://sprites/simple_trash_bin/simple_trash_bin_2.png" type="Texture" id=15]
-[ext_resource path="res://sprites/speech_bubble/speech_bubble.png" type="Texture" id=16]
-[ext_resource path="res://level4res/speechbubble.gd" type="Script" id=17]
-[ext_resource path="res://level4res/time_left.gd" type="Script" id=18]
-[ext_resource path="res://level_cleared_window.tscn" type="PackedScene" id=19]
-[ext_resource path="res://reset_exit_window.tscn" type="PackedScene" id=20]
+[ext_resource path="res://aple.tscn" type="PackedScene" id=6]
+[ext_resource path="res://banana.tscn" type="PackedScene" id=7]
+[ext_resource path="res://bottle.tscn" type="PackedScene" id=8]
+[ext_resource path="res://can.tscn" type="PackedScene" id=9]
+[ext_resource path="res://trashbag.tscn" type="PackedScene" id=10]
+[ext_resource path="res://level4res/Trash_bins.gd" type="Script" id=11]
+[ext_resource path="res://sprites/simple_trash_bin/simple_trash_bin.png" type="Texture" id=12]
+[ext_resource path="res://fonts/montserrat_24.tres" type="DynamicFont" id=13]
+[ext_resource path="res://sprites/simple_trash_bin/simple_trash_bin_2.png" type="Texture" id=14]
+[ext_resource path="res://sprites/speech_bubble/speech_bubble.png" type="Texture" id=15]
+[ext_resource path="res://level4res/speechbubble.gd" type="Script" id=16]
+[ext_resource path="res://level4res/time_left.gd" type="Script" id=17]
+[ext_resource path="res://level_cleared_window.tscn" type="PackedScene" id=18]
+[ext_resource path="res://reset_exit_window.tscn" type="PackedScene" id=19]
+[ext_resource path="res://UI/phone_controls.tscn" type="PackedScene" id=20]
 
 [sub_resource type="SegmentShape2D" id=1]
 a = Vector2( -212.258, -16.2642 )
@@ -513,91 +513,88 @@ node_a = NodePath("../left_wall_anchor")
 node_b = NodePath("../web_segment")
 softness = 0.2
 
-[node name="MouseSpawner" parent="." instance=ExtResource( 6 )]
-visible = false
-
 [node name="trash_group" type="Node2D" parent="."]
 editor/display_folded = true
 position = Vector2( 42.89, 55.71 )
 
-[node name="aple" parent="trash_group" instance=ExtResource( 7 )]
+[node name="aple" parent="trash_group" instance=ExtResource( 6 )]
 position = Vector2( 81.2, 207.52 )
 
-[node name="aple2" parent="trash_group" instance=ExtResource( 7 )]
+[node name="aple2" parent="trash_group" instance=ExtResource( 6 )]
 position = Vector2( 172.47, 137.15 )
 
-[node name="aple3" parent="trash_group" instance=ExtResource( 7 )]
+[node name="aple3" parent="trash_group" instance=ExtResource( 6 )]
 position = Vector2( 509.58, 0 )
 
-[node name="aple4" parent="trash_group" instance=ExtResource( 7 )]
+[node name="aple4" parent="trash_group" instance=ExtResource( 6 )]
 position = Vector2( 677.96, 0 )
 
-[node name="aple5" parent="trash_group" instance=ExtResource( 7 )]
+[node name="aple5" parent="trash_group" instance=ExtResource( 6 )]
 position = Vector2( 1108.18, 0 )
 
-[node name="banana" parent="trash_group" instance=ExtResource( 8 )]
+[node name="banana" parent="trash_group" instance=ExtResource( 7 )]
 position = Vector2( 753.684, 315.789 )
 
-[node name="banana2" parent="trash_group" instance=ExtResource( 8 )]
+[node name="banana2" parent="trash_group" instance=ExtResource( 7 )]
 position = Vector2( 44.2105, 335.789 )
 
-[node name="banana3" parent="trash_group" instance=ExtResource( 8 )]
+[node name="banana3" parent="trash_group" instance=ExtResource( 7 )]
 position = Vector2( 761.053, 100 )
 
-[node name="banana4" parent="trash_group" instance=ExtResource( 8 )]
+[node name="banana4" parent="trash_group" instance=ExtResource( 7 )]
 position = Vector2( 1062.11, 31.5789 )
 
-[node name="banana5" parent="trash_group" instance=ExtResource( 8 )]
+[node name="banana5" parent="trash_group" instance=ExtResource( 7 )]
 position = Vector2( 591.579, 3.1579 )
 
-[node name="bottle" parent="trash_group" instance=ExtResource( 9 )]
+[node name="bottle" parent="trash_group" instance=ExtResource( 8 )]
 position = Vector2( 1022.11, 227.368 )
 
-[node name="bottle2" parent="trash_group" instance=ExtResource( 9 )]
+[node name="bottle2" parent="trash_group" instance=ExtResource( 8 )]
 position = Vector2( 1158.95, 134.737 )
 
-[node name="bottle3" parent="trash_group" instance=ExtResource( 9 )]
+[node name="bottle3" parent="trash_group" instance=ExtResource( 8 )]
 position = Vector2( 698.947, 137.895 )
 
-[node name="bottle4" parent="trash_group" instance=ExtResource( 9 )]
+[node name="bottle4" parent="trash_group" instance=ExtResource( 8 )]
 position = Vector2( 448.421, 185.263 )
 
-[node name="bottle5" parent="trash_group" instance=ExtResource( 9 )]
+[node name="bottle5" parent="trash_group" instance=ExtResource( 8 )]
 position = Vector2( 153.684, 202.105 )
 
-[node name="can" parent="trash_group" instance=ExtResource( 10 )]
+[node name="can" parent="trash_group" instance=ExtResource( 9 )]
 position = Vector2( 1148.42, 226.316 )
 
-[node name="can2" parent="trash_group" instance=ExtResource( 10 )]
+[node name="can2" parent="trash_group" instance=ExtResource( 9 )]
 position = Vector2( 796.842, 252.632 )
 
-[node name="can3" parent="trash_group" instance=ExtResource( 10 )]
+[node name="can3" parent="trash_group" instance=ExtResource( 9 )]
 position = Vector2( 529.474, 234.737 )
 
-[node name="can4" parent="trash_group" instance=ExtResource( 10 )]
+[node name="can4" parent="trash_group" instance=ExtResource( 9 )]
 position = Vector2( 21.0526, 269.474 )
 
-[node name="can5" parent="trash_group" instance=ExtResource( 10 )]
+[node name="can5" parent="trash_group" instance=ExtResource( 9 )]
 position = Vector2( 175.789, 282.105 )
 
-[node name="trashbag" parent="trash_group" instance=ExtResource( 11 )]
+[node name="trashbag" parent="trash_group" instance=ExtResource( 10 )]
 position = Vector2( 1150.53, 25.2632 )
 
-[node name="trashbag2" parent="trash_group" instance=ExtResource( 11 )]
+[node name="trashbag2" parent="trash_group" instance=ExtResource( 10 )]
 position = Vector2( 45.2632, 100 )
 
-[node name="trashbag3" parent="trash_group" instance=ExtResource( 11 )]
+[node name="trashbag3" parent="trash_group" instance=ExtResource( 10 )]
 position = Vector2( 117.895, 286.316 )
 
-[node name="trashbag4" parent="trash_group" instance=ExtResource( 11 )]
+[node name="trashbag4" parent="trash_group" instance=ExtResource( 10 )]
 position = Vector2( 1098.95, 120 )
 
-[node name="trashbag5" parent="trash_group" instance=ExtResource( 11 )]
+[node name="trashbag5" parent="trash_group" instance=ExtResource( 10 )]
 position = Vector2( 457.895, 82.1052 )
 
 [node name="Trash_bins" type="Node2D" parent="."]
 editor/display_folded = true
-script = ExtResource( 12 )
+script = ExtResource( 11 )
 
 [node name="trash_bin" type="StaticBody2D" parent="Trash_bins"]
 position = Vector2( 195.947, 107.304 )
@@ -608,7 +605,7 @@ __meta__ = {
 
 [node name="trashbin_sprite" type="Sprite" parent="Trash_bins/trash_bin"]
 position = Vector2( 263.595, 185.45 )
-texture = ExtResource( 13 )
+texture = ExtResource( 12 )
 
 [node name="base_sprite" type="Sprite" parent="Trash_bins/trash_bin"]
 position = Vector2( 263.012, 359.236 )
@@ -640,7 +637,7 @@ margin_left = 253.74
 margin_top = 344.17
 margin_right = 293.74
 margin_bottom = 375.17
-custom_fonts/font = ExtResource( 14 )
+custom_fonts/font = ExtResource( 13 )
 text = "0"
 
 [node name="trash_bin2" type="StaticBody2D" parent="Trash_bins"]
@@ -652,7 +649,7 @@ __meta__ = {
 
 [node name="trashbin_sprite" type="Sprite" parent="Trash_bins/trash_bin2"]
 position = Vector2( 263.595, 185.45 )
-texture = ExtResource( 15 )
+texture = ExtResource( 14 )
 
 [node name="base_sprite" type="Sprite" parent="Trash_bins/trash_bin2"]
 position = Vector2( 263.012, 359.236 )
@@ -684,7 +681,7 @@ margin_left = 253.61
 margin_top = 343.99
 margin_right = 293.61
 margin_bottom = 408.99
-custom_fonts/font = ExtResource( 14 )
+custom_fonts/font = ExtResource( 13 )
 text = "0
 "
 
@@ -695,15 +692,15 @@ one_shot = true
 [node name="speechbubble" type="Sprite" parent="."]
 editor/display_folded = true
 position = Vector2( 1017.14, 442.598 )
-texture = ExtResource( 16 )
-script = ExtResource( 17 )
+texture = ExtResource( 15 )
+script = ExtResource( 16 )
 
 [node name="Label" type="Label" parent="speechbubble"]
 margin_left = -232.0
 margin_top = -94.0
 margin_right = 196.0
 margin_bottom = 91.0
-custom_fonts/font = ExtResource( 14 )
+custom_fonts/font = ExtResource( 13 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Objetivo: Coloca 8 piezas en cada
 contenedor antes de que se ter_
@@ -719,29 +716,31 @@ margin_left = 20.0
 margin_top = 20.0
 margin_right = 74.0
 margin_bottom = 51.0
-custom_fonts/font = ExtResource( 14 )
+custom_fonts/font = ExtResource( 13 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 custom_constants/shadow_offset_y = 5
 text = "5:00"
-script = ExtResource( 18 )
+script = ExtResource( 17 )
 
 [node name="Timer" type="Timer" parent="time_left"]
 wait_time = 360.0
 one_shot = true
 autostart = true
 
-[node name="level_cleared_window" parent="." instance=ExtResource( 19 )]
+[node name="level_cleared_window" parent="." instance=ExtResource( 18 )]
 pause_mode = 2
 visible = false
 
-[node name="reset_exit_window" parent="." instance=ExtResource( 20 )]
+[node name="reset_exit_window" parent="." instance=ExtResource( 19 )]
 pause_mode = 2
 visible = false
 margin_left = 534.61
 margin_top = 305.69
 margin_right = 534.61
 margin_bottom = 305.69
+
+[node name="phone_controls" parent="." instance=ExtResource( 20 )]
 [connection signal="body_entered" from="Trash_bins/trash_bin/trash_bin_area" to="Trash_bins" method="_on_trash_bin_area_body_entered"]
 [connection signal="body_exited" from="Trash_bins/trash_bin/trash_bin_area" to="Trash_bins" method="_on_trash_bin_area_body_exited"]
 [connection signal="body_entered" from="Trash_bins/trash_bin2/trash_bin2_area" to="Trash_bins" method="_on_trash_bin2_area_body_entered"]

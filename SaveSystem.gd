@@ -11,6 +11,10 @@ var load_response = config.load(save_path)
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	max_level_reached=config.get_value("Max_level_reached","Level",max_level_reached)
+	if max_level_reached==null:
+		config.set_value("Max_level_reached","Level",1)
+		config.save(save_path)
+		max_level_reached=1
 	pass # Replace with function body.
 	
 

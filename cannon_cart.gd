@@ -1,5 +1,6 @@
 extends KinematicBody2D
 export var motion_speed = 200
+export var dead_zone=1
 var  wheel_animator
 # Declare member variables here. Examples:
 # var a = 2
@@ -15,14 +16,14 @@ func _ready():
 
 func _physics_process(delta):
 	var motion = Vector2()
-	if Input.is_action_pressed("move_left") or Input.is_action_pressed("move_right"):
+	if Input.is_action_pressed("move_left") or Input.is_action_pressed("move_right") or abs(Input.get_accelerometer().x)>dead_zone:
 		if not get_node("moving").playing:
 			get_node("moving").play()
-	if (Input.is_action_pressed("move_left")):
+	if Input.is_action_pressed("move_left") or Input.get_accelerometer().x<-dead_zone:
 		motion += Vector2(-1, 0)
 		wheel_animator.play("spin_left")
 	else:
-		if (Input.is_action_pressed("move_right")):
+		if Input.is_action_pressed("move_right") or Input.get_accelerometer().x>dead_zone:
 			motion += Vector2(1, 0)
 			wheel_animator.play("spin_right")
 		else:

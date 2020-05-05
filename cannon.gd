@@ -15,7 +15,7 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if(Input.is_action_just_pressed("mouse_1")):
+	if Input.is_action_just_pressed("mouse_1") and get_node("/root/global_values").on_UI==false:
 		get_node("shot").play()
 		get_child(0).frame=0
 		get_child(0).play("shooting",false)

@@ -2,6 +2,13 @@ extends Node2D
 export var fx_volume=0.3
 export var music_volume=0.4
 export var dbs_of_increment_decrement=50
+
+#controles
+var phone_left_pressed=false
+var phone_right_pressed=false
+var phone_pause=false
+var on_UI=false
+
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
@@ -12,7 +19,7 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
-#	pass
+	#pass
 
 func get_fx_volume():
 	return fx_volume*dbs_of_increment_decrement

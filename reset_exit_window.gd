@@ -14,7 +14,8 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if (Input.is_action_just_pressed("ui_cancel")):
+	if Input.is_action_just_pressed("ui_cancel") or get_node("/root/global_values").phone_pause:
+		get_node("/root/global_values").phone_pause=false
 		get_tree().paused=not get_tree().paused
 		if(not visible):
 			show()

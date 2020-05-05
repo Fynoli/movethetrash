@@ -12,10 +12,10 @@
 [ext_resource path="res://sprites/saw/mount.png" type="Texture" id=10]
 [ext_resource path="res://sprites/wood/h_wood_plank_2.png" type="Texture" id=11]
 [ext_resource path="res://fonts/montserrat_24.tres" type="DynamicFont" id=12]
-[ext_resource path="res://Tools/MouseSpawner.tscn" type="PackedScene" id=13]
-[ext_resource path="res://level5res/Time.gd" type="Script" id=14]
-[ext_resource path="res://sprites/speech_bubble/speech_bubble.png" type="Texture" id=15]
-[ext_resource path="res://level5res/speech_bubble.gd" type="Script" id=16]
+[ext_resource path="res://level5res/Time.gd" type="Script" id=13]
+[ext_resource path="res://sprites/speech_bubble/speech_bubble.png" type="Texture" id=14]
+[ext_resource path="res://level5res/speech_bubble.gd" type="Script" id=15]
+[ext_resource path="res://UI/phone_controls.tscn" type="PackedScene" id=16]
 
 [sub_resource type="Animation" id=1]
 resource_name = "spin"
@@ -77,7 +77,6 @@ emission_sphere_radius = 0.01
 flag_disable_z = true
 spread = 0.0
 gravity = Vector3( 0, 0, 0 )
-angular_velocity = 132.0
 orbit_velocity = 0.0
 orbit_velocity_random = 1.0
 radial_accel = 100.0
@@ -259,9 +258,6 @@ speed_scale = 2.47
 explosiveness = 0.76
 process_material = SubResource( 6 )
 
-[node name="MouseSpawner" parent="." instance=ExtResource( 13 )]
-visible = false
-
 [node name="Points" type="Label" parent="."]
 margin_left = 143.0
 margin_top = 5.25
@@ -284,7 +280,7 @@ custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 custom_constants/shadow_offset_y = 5
 text = "Tiempo: "
-script = ExtResource( 14 )
+script = ExtResource( 13 )
 
 [node name="Timer" type="Timer" parent="Time"]
 wait_time = 300.0
@@ -293,8 +289,8 @@ autostart = true
 
 [node name="speech_bubble" type="Sprite" parent="."]
 position = Vector2( 817.34, 131.98 )
-texture = ExtResource( 15 )
-script = ExtResource( 16 )
+texture = ExtResource( 14 )
+script = ExtResource( 15 )
 
 [node name="Label" type="Label" parent="speech_bubble"]
 margin_left = -243.0
@@ -312,6 +308,8 @@ Cada sierra da diferente puntaje."
 wait_time = 10.0
 one_shot = true
 autostart = true
+
+[node name="phone_controls" parent="." instance=ExtResource( 16 )]
 [connection signal="body_entered" from="trash_trays/tray_1/saw_area_1" to="trash_trays" method="_on_saw_area_1_body_entered"]
 [connection signal="body_entered" from="trash_trays/tray_2/saw_area_2" to="trash_trays" method="_on_saw_area_2_body_entered"]
 [connection signal="body_entered" from="trash_trays/tray_3/saw_area_3" to="trash_trays" method="_on_saw_area_3_body_entered"]

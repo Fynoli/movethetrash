@@ -12,9 +12,9 @@
 [ext_resource path="res://sprites/wood/h_wood_plank_1.png" type="Texture" id=10]
 [ext_resource path="res://sprites/speech_bubble/speech_bubble.png" type="Texture" id=11]
 [ext_resource path="res://level3res/speech_bubble.gd" type="Script" id=12]
-[ext_resource path="res://Tools/MouseSpawner.tscn" type="PackedScene" id=13]
-[ext_resource path="res://level_cleared_window.tscn" type="PackedScene" id=14]
-[ext_resource path="res://reset_exit_window.tscn" type="PackedScene" id=15]
+[ext_resource path="res://level_cleared_window.tscn" type="PackedScene" id=13]
+[ext_resource path="res://reset_exit_window.tscn" type="PackedScene" id=14]
+[ext_resource path="res://UI/phone_controls.tscn" type="PackedScene" id=15]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 235.078, 32.4715 )
@@ -162,20 +162,19 @@ wait_time = 5.0
 one_shot = true
 autostart = true
 
-[node name="MouseSpawner" parent="." instance=ExtResource( 13 )]
-visible = false
-
-[node name="level_cleared_window" parent="." instance=ExtResource( 14 )]
+[node name="level_cleared_window" parent="." instance=ExtResource( 13 )]
 pause_mode = 2
 visible = false
 
-[node name="reset_exit_window" parent="." instance=ExtResource( 15 )]
+[node name="reset_exit_window" parent="." instance=ExtResource( 14 )]
 pause_mode = 2
 visible = false
 margin_left = 537.06
 margin_top = 305.91
 margin_right = 537.06
 margin_bottom = 305.91
+
+[node name="phone_controls" parent="." instance=ExtResource( 15 )]
 [connection signal="body_entered" from="trash_trays/tray_1/tray_1_area" to="trash_trays" method="_on_tray_1_area_body_entered"]
 [connection signal="body_exited" from="trash_trays/tray_1/tray_1_area" to="trash_trays" method="_on_tray_1_area_body_exited"]
 [connection signal="body_entered" from="trash_trays/tray_2/tray_2_area" to="trash_trays" method="_on_tray_2_area_body_entered"]
