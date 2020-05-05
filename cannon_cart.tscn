@@ -1,24 +1,25 @@
-[gd_scene load_steps=25 format=2]
+[gd_scene load_steps=26 format=2]
 
 [ext_resource path="res://cannon_cart.gd" type="Script" id=1]
 [ext_resource path="res://sprites/cannon/base/canon_base.png" type="Texture" id=2]
 [ext_resource path="res://sprites/cannon/wheels/cannon_wheel.png" type="Texture" id=3]
 [ext_resource path="res://cannon.gd" type="Script" id=4]
-[ext_resource path="res://sprites/cannon/idle/0.png" type="Texture" id=5]
-[ext_resource path="res://sprites/cannon/shooting/0.png" type="Texture" id=6]
-[ext_resource path="res://sprites/cannon/shooting/1.png" type="Texture" id=7]
-[ext_resource path="res://sprites/cannon/shooting/2.png" type="Texture" id=8]
-[ext_resource path="res://sprites/cannon/shooting/3.png" type="Texture" id=9]
-[ext_resource path="res://sprites/cannon/shooting/4.png" type="Texture" id=10]
-[ext_resource path="res://sprites/cannon/shooting/5.png" type="Texture" id=11]
-[ext_resource path="res://sprites/cannon/shooting/6.png" type="Texture" id=12]
-[ext_resource path="res://sprites/cannon/shooting/8.png" type="Texture" id=13]
-[ext_resource path="res://sprites/cannon/shooting/7.png" type="Texture" id=14]
-[ext_resource path="res://sprites/cannon/shooting/9.png" type="Texture" id=15]
-[ext_resource path="res://sprites/cannon/shooting/10.png" type="Texture" id=16]
-[ext_resource path="res://sprites/cannon/shooting/11.png" type="Texture" id=17]
-[ext_resource path="res://soudFX/cannon_shot.wav" type="AudioStream" id=18]
-[ext_resource path="res://soudFX/cannon_moving.wav" type="AudioStream" id=19]
+[ext_resource path="res://sprites/laser/laser.png" type="Texture" id=5]
+[ext_resource path="res://sprites/cannon/idle/0.png" type="Texture" id=6]
+[ext_resource path="res://sprites/cannon/shooting/0.png" type="Texture" id=7]
+[ext_resource path="res://sprites/cannon/shooting/1.png" type="Texture" id=8]
+[ext_resource path="res://sprites/cannon/shooting/2.png" type="Texture" id=9]
+[ext_resource path="res://sprites/cannon/shooting/3.png" type="Texture" id=10]
+[ext_resource path="res://sprites/cannon/shooting/4.png" type="Texture" id=11]
+[ext_resource path="res://sprites/cannon/shooting/5.png" type="Texture" id=12]
+[ext_resource path="res://sprites/cannon/shooting/6.png" type="Texture" id=13]
+[ext_resource path="res://sprites/cannon/shooting/8.png" type="Texture" id=14]
+[ext_resource path="res://sprites/cannon/shooting/7.png" type="Texture" id=15]
+[ext_resource path="res://sprites/cannon/shooting/9.png" type="Texture" id=16]
+[ext_resource path="res://sprites/cannon/shooting/10.png" type="Texture" id=17]
+[ext_resource path="res://sprites/cannon/shooting/11.png" type="Texture" id=18]
+[ext_resource path="res://soudFX/cannon_shot.wav" type="AudioStream" id=19]
+[ext_resource path="res://soudFX/cannon_moving.wav" type="AudioStream" id=20]
 
 [sub_resource type="CapsuleShape2D" id=1]
 
@@ -78,12 +79,12 @@ tracks/1/keys = {
 
 [sub_resource type="SpriteFrames" id=4]
 animations = [ {
-"frames": [ ExtResource( 5 ) ],
+"frames": [ ExtResource( 6 ) ],
 "loop": false,
 "name": "idle",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 15 ), ExtResource( 16 ), ExtResource( 17 ) ],
+"frames": [ ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 15 ), ExtResource( 16 ), ExtResource( 17 ), ExtResource( 18 ) ],
 "loop": false,
 "name": "shooting",
 "speed": 30.0
@@ -130,6 +131,12 @@ script = ExtResource( 4 )
 bullet_power = 700
 correction_angle = 1.6
 
+[node name="laser" type="Sprite" parent="cannon"]
+modulate = Color( 1, 0, 0, 0.862745 )
+scale = Vector2( 0.1, 50 )
+texture = ExtResource( 5 )
+offset = Vector2( 0, -25 )
+
 [node name="cannon_sprites" type="AnimatedSprite" parent="cannon"]
 position = Vector2( 0.905886, -44.6397 )
 frames = SubResource( 4 )
@@ -139,10 +146,10 @@ animation = "idle"
 shape = SubResource( 5 )
 
 [node name="shot" type="AudioStreamPlayer" parent="cannon"]
-stream = ExtResource( 18 )
+stream = ExtResource( 19 )
 volume_db = -30.0
 
 [node name="moving" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 19 )
+stream = ExtResource( 20 )
 volume_db = -35.0
 [connection signal="animation_finished" from="cannon/cannon_sprites" to="cannon" method="_on_cannon_sprites_animation_finished"]

@@ -6,6 +6,8 @@ extends KinematicBody2D
 export var bullet_power = 500 # Pixels/second
 export var correction_angle =0.1
 export var bullet_spawn_distance_from_cannon =75
+export var joystick_deadzone=0.5
+export var laser_lenght=1000
 var mouse_position
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -15,10 +17,11 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if Input.is_action_just_pressed("mouse_1") and get_node("/root/global_values").on_UI==false:
+	if Input.is_action_just_pressed("mouse_1"):
+		Input.start_joy_vibration(0,0.1,0,0.25)
 		get_node("shot").play()
-		get_child(0).frame=0
-		get_child(0).play("shooting",false)
+		get_child(1).frame=0
+		get_child(1).play("shooting",false)
 		var projectile = load("res://bullet.tscn")
 		var bullet = projectile.instance()
 		get_parent().get_parent().add_child(bullet)
@@ -26,9 +29,31 @@ func _process(delta):
 		bullet.get_node("bullet_body").apply_central_impulse(Vector2(sin(rotation)*bullet_power,-cos(rotation)*bullet_power))
 
 func _physics_process(delta):
+	var joyX=Input.get_joy_axis(0,JOY_AXIS_2)# -1 izquierda   1 derecha
+	var joyY=Input.get_joy_axis(0,JOY_AXIS_3)# -1 arriba  1 abajo
+	#print("X :"+str(joyX)+"  Y:"+str(joyY))
+	var rad=0
+	if joyX>0:
+		rad=atan(joyY/joyX)+PI/2
+	elif joyX<0:
+		rad=atan(joyY/joyX)+PI+PI/2
+	elif joyX==0:
+		if joyY>=0:
+			rad=PI
+		else:
+			rad=2*PI
+	
+	
+	
+	#print(str(Vector2(joyX,joyY).length()))
 	mouse_position= get_local_mouse_position()
-	rotate(mouse_position.angle()+correction_angle)
+	if Vector2(joyX,joyY).length()<joystick_deadzone:
+		rotate(mouse_position.angle()+correction_angle)
+		get_node("laser").hide()
+	else:
+		get_node("laser").show()
+		rotation=rad
 
 
 func _on_cannon_sprites_animation_finished():
-	get_child(0).play("idle")
+	get_child(1).play("idle")

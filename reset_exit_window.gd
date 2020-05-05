@@ -18,6 +18,7 @@ func _process(delta):
 		get_node("/root/global_values").phone_pause=false
 		get_tree().paused=not get_tree().paused
 		if(not visible):
+			get_node("CenterContainer/VBoxContainer/reset_button").grab_focus()
 			show()
 		else:
 			hide()

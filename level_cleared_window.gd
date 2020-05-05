@@ -1,5 +1,6 @@
 extends Control
 var current_level=1
+var entered=true
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
@@ -13,8 +14,10 @@ func _ready():
 	pass # Replace with function body.
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+func _process(delta):
+	if visible and entered:
+		get_node("CenterContainer/VBoxContainer/next_level_utton").grab_focus()
+		entered=false
 
 
 func _on_back_to_menu_button_pressed():
